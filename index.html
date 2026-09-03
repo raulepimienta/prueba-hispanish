@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HiSpanish! | Aprende Español en Buenos Aires</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --teal: #239b8f;
+      --teal-dark: #17736a;
+      --teal-light: #e2f4f1;
+      --yellow: #f7cd4b;
+      --yellow-hover: #e0b83b;
+      --ink: #173b38;
+      --cream: #fffaf0;
+      --muted: #617572;
+      --white: #ffffff;
+      --shadow: 0 12px 32px rgba(23, 59, 56, 0.08);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink);
+      background-color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .wrap {
+      max-width: 1140px;
+      width: calc(100% - 40px);
+      margin: auto;
+    }
+
+    /* Navbar Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 250, 240, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(23, 59, 56, 0.08);
+    }
+
+    nav {
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--ink);
+    }
+
+    .brand img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .links a:hover {
+      color: var(--teal);
+    }
+
+    .cta-nav {
+      background: var(--teal);
+      color: var(--white) !important;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(35, 155, 143, 0.3);
+    }
+
+    .cta-nav:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Global Buttons & Badges */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: 0 6px 20px rgba(35, 155, 143, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid #d9e3e0;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .btn-yellow:hover {
+      background: var(--yellow-hover);
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* Hero Section */
+    section {
+      padding: 90px 0;
+    }
+
+    .hero {
+      padding: 60px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    h1 span {
+      color: var(--teal);
+      position: relative;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: var(--yellow);
+      border-radius: 36px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(2deg);
+      box-shadow: 0 20px 40px rgba(23, 59, 56, 0.12);
+      max-width: 380px;
+    }
+
+    .hero-card-inner {
+      background: var(--white);
+      padding: 28px 24px;
+      border-radius: 24px;
+      transform: rotate(-2deg);
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .hero-logo-display {
+      max-width: 140px;
+      height: auto;
+      margin-bottom: 16px;
+    }
+
+    /* Features Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(23, 59, 56, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon-box {
+      font-size: 26px;
+      background: var(--teal-light);
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+
+    /* Courses Section */
+    .courses-bg {
+      background: #edf7f5;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .course-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .badge {
+      background: var(--yellow);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    /* Location Banner */
+    .location-card {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 32px;
+      padding: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .location-card p {
+      color: #c6d8d5;
+      margin-top: 8px;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(23, 59, 56, 0.1);
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      transition: transform 0.3s ease;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .hero-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .features-grid, .course-grid {
+        grid-template-columns: 1fr;
+      }
+      .links {
+        display: none;
+      }
+      .location-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top">
+          <img src="logo.png" alt="HiSpanish! Logo">
+        </a>
+        <div class="links">
+          <a href="#about">Por qué elegirnos</a>
+          <a href="#courses">Cursos</a>
+          <a href="#location">Ubicación</a>
+          <a href="#contact" class="cta-nav">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="tag">Español en Buenos Aires</span>
+          <h1>Aprende español viviendo <span>Palermo</span>.</h1>
+          <p class="lead">Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Empezar por WhatsApp</a>
+            <a class="btn btn-secondary" href="#courses">Ver Cursos</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <img src="logo.png" alt="HiSpanish! Logo" class="hero-logo-display">
+              <h3 style="font-size: 24px; margin-bottom: 8px;">¡Hola! 👋</h3>
+              <p style="color: var(--muted); font-size: 14px;">Descubrí expresiones locales, el lunfardo y la vida en Buenos Aires mientras aprendés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / About Section -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-title">
+        <span class="tag">La Experiencia</span>
+        <h2>¿Por qué aprender con HiSpanish?</h2>
+        <p style="color: var(--muted);">Diseñamos cada lección para que te comuniques con confianza en situaciones reales.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon-box">🗣️</div>
+          <h3>Enfoque Comunicativo</h3>
+          <p style="color: var(--muted); margin-top: 10px;">Priorizamos la conversación real sobre la memorización pasiva. Hablá español desde la primera clase.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box">📍</div>
+          <h3>Inmersión en Palermo</h3>
+          <p style="color: var(--muted); margin-top: 10px;">Ubicados en el corazón gastronómico y cultural de Palermo Soho, rodeados de cafés y vida urbana.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box">⭐</div>
+          <h3>Grupos Reducidos</h3>
+          <p style="color: var(--muted); margin-top: 10px;">Atención personalizada y ritmo adaptado a tus necesidades académicas o de viaje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="courses-bg" id="courses">
+    <div class="wrap">
+      <div class="section-title">
+        <span class="tag">Programas</span>
+        <h2>Nuestros Cursos</h2>
+        <p style="color: var(--muted);">Elegí el programa que mejor se adapte a tu estadía y objetivos.</p>
+      </div>
+
+      <div class="course-grid">
+        <div class="course-card">
+          <div>
+            <div class="course-header">
+              <h3>Curso Intensivo</h3>
+              <span class="badge">Más Popular</span>
+            </div>
+            <p style="color: var(--muted); margin-top: 12px;">Para quienes buscan progresar rápidamente. Clases diarias enfocadas en fluidez y gramática práctica.</p>
+          </div>
+          <a class="btn btn-secondary" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20el%20Curso%20Intensivo">Consultar Horarios</a>
+        </div>
+
+        <div class="course-card">
+          <div>
+            <div class="course-header">
+              <h3>Clases Particulares</h3>
+              <span class="badge">Flexibilidad 100%</span>
+            </div>
+            <p style="color: var(--muted); margin-top: 12px;">Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.</p>
+          </div>
+          <a class="btn btn-secondary" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20Clases%20Particulares">Agendar Clase</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location">
+    <div class="wrap">
+      <div class="location-card">
+        <div>
+          <h2>Vení a estudiar a Palermo Soho</h2>
+          <p>📍 Gurruchaga 1851, C1414DIK Cdad. Autónoma de Buenos Aires</p>
+        </div>
+        <a class="btn btn-yellow" target="_blank" href="https://maps.google.com/?q=Gurruchaga+1851,+Cdad.+Autónoma+de+Buenos+Aires">📍 Ver en Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2 style="margin-bottom: 10px;">¿Listo para decir “¡Hola!”?</h2>
+          <p style="color: var(--muted); margin-bottom: 24px;">Contanos tu nivel de español y qué te gustaría aprender.</p>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Hablar por WhatsApp</a>
+        </div>
+
+        <div class="contact-card">
+          <h2 style="margin-bottom: 10px;">HiSpanish!</h2>
+          <p style="color: var(--muted); margin-bottom: 12px;">Escuela de español para extranjeros.</p>
+          <p style="color: var(--muted); margin-bottom: 12px;">📍 Gurruchaga 1851, Palermo, CABA</p>
+          <p style="font-weight: 700;">📞 +54 9 11 2458-7215</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <p>&copy; 2026 HiSpanish! · Palermo, Buenos Aires, Argentina. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a class="wa-float" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27m%20interested%20in%20Spanish%20classes." aria-label="WhatsApp">
+    💬
+  </a>
+
+</body>
+</html>
