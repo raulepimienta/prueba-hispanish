@@ -366,6 +366,80 @@
       white-space: nowrap;
     }
 
+    /* Find Your Spanish Section */
+    .find-spanish-section {
+      padding: 70px 0 90px;
+      background: #edf7f5;
+      border-top: 1px solid rgba(35, 155, 143, 0.1);
+    }
+
+    .find-header {
+      margin-bottom: 36px;
+    }
+
+    .find-header h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .find-header p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .find-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .find-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 28px 32px;
+      box-shadow: 0 8px 24px rgba(23, 59, 56, 0.04);
+      border: 1px solid rgba(23, 59, 56, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    .find-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .find-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .find-card-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .level-badge {
+      background: var(--yellow);
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .find-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
     /* Location Banner */
     .location-card {
       background: var(--ink);
@@ -435,7 +509,7 @@
       .hero-grid, .contact-grid {
         grid-template-columns: 1fr;
       }
-      .features-grid, .course-grid {
+      .features-grid, .course-grid, .find-grid {
         grid-template-columns: 1fr;
       }
       .links {
@@ -564,6 +638,50 @@
     </div>
   </section>
 
+  <!-- Find Your Spanish Section -->
+  <section class="find-spanish-section">
+    <div class="wrap">
+      <div class="find-header">
+        <h2 id="find-title">Find your Spanish.</h2>
+        <p id="find-subtitle">Choose the format that fits your plans in Buenos Aires.</p>
+      </div>
+
+      <div class="find-grid">
+        <div class="find-card">
+          <div class="find-card-header">
+            <h3 id="fc1-title">Spanish for Beginners</h3>
+            <span class="level-badge">A1–A2</span>
+          </div>
+          <p id="fc1-desc">Build a strong foundation and communicate with confidence.</p>
+        </div>
+
+        <div class="find-card">
+          <div class="find-card-header">
+            <h3 id="fc2-title">Conversational Spanish</h3>
+            <span class="level-badge">B1–C2</span>
+          </div>
+          <p id="fc2-desc">Improve fluency through practical conversations.</p>
+        </div>
+
+        <div class="find-card">
+          <div class="find-card-header">
+            <h3 id="fc3-title">Intensive Spanish</h3>
+            <span class="level-badge" id="fc3-badge">Intensive</span>
+          </div>
+          <p id="fc3-desc">A focused option for travelers and newcomers.</p>
+        </div>
+
+        <div class="find-card">
+          <div class="find-card-header">
+            <h3 id="fc4-title">Private Lessons</h3>
+            <span class="level-badge">1:1</span>
+          </div>
+          <p id="fc4-desc">Personalized classes around your level and goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Location Section -->
   <section id="location">
     <div class="wrap">
@@ -644,6 +762,20 @@
         c2Badge: "Flexibilidad 100%",
         c2Desc: "Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.",
         c2Cta: "Agendar Clase",
+
+        /* Find Your Spanish ES */
+        findTitle: "Encontrá tu español.",
+        findSubtitle: "Elegí el formato que mejor se adapte a tus planes en Buenos Aires.",
+        fc1Title: "Español para Principiantes",
+        fc1Desc: "Construí bases sólidas y comunicate con total confianza.",
+        fc2Title: "Español Conversacional",
+        fc2Desc: "Mejorá tu fluidez a través de conversaciones prácticas.",
+        fc3Title: "Español Intensivo",
+        fc3Badge: "Intensivo",
+        fc3Desc: "Una opción enfocada para viajeros y recién llegados.",
+        fc4Title: "Clases Particulares",
+        fc4Desc: "Clases personalizadas según tu nivel y objetivos.",
+
         locTitle: "Vení a estudiar a Palermo Soho",
         locAddress: "📍 Gurruchaga 1851, C1414DIK Cdad. Autónoma de Buenos Aires",
         locCta: "📍 Ver en Google Maps",
@@ -685,6 +817,20 @@
         c2Badge: "100% Flexible",
         c2Desc: "Customized study plan tailored to you. Ideal for professionals, exam prep, or specific goals.",
         c2Cta: "Book a Lesson",
+
+        /* Find Your Spanish EN */
+        findTitle: "Find your Spanish.",
+        findSubtitle: "Choose the format that fits your plans in Buenos Aires.",
+        fc1Title: "Spanish for Beginners",
+        fc1Desc: "Build a strong foundation and communicate with confidence.",
+        fc2Title: "Conversational Spanish",
+        fc2Desc: "Improve fluency through practical conversations.",
+        fc3Title: "Intensive Spanish",
+        fc3Badge: "Intensive",
+        fc3Desc: "A focused option for travelers and newcomers.",
+        fc4Title: "Private Lessons",
+        fc4Desc: "Personalized classes around your level and goals.",
+
         locTitle: "Come Study in Palermo Soho",
         locAddress: "📍 Gurruchaga 1851, C1414DIK Autonomous City of Buenos Aires",
         locCta: "📍 View on Google Maps",
@@ -740,6 +886,19 @@
       document.getElementById('c2-badge').textContent = t.c2Badge;
       document.getElementById('c2-desc').textContent = t.c2Desc;
       document.getElementById('c2-cta').textContent = t.c2Cta;
+
+      /* Find Your Spanish Switcher */
+      document.getElementById('find-title').textContent = t.findTitle;
+      document.getElementById('find-subtitle').textContent = t.findSubtitle;
+      document.getElementById('fc1-title').textContent = t.fc1Title;
+      document.getElementById('fc1-desc').textContent = t.fc1Desc;
+      document.getElementById('fc2-title').textContent = t.fc2Title;
+      document.getElementById('fc2-desc').textContent = t.fc2Desc;
+      document.getElementById('fc3-title').textContent = t.fc3Title;
+      document.getElementById('fc3-badge').textContent = t.fc3Badge;
+      document.getElementById('fc3-desc').textContent = t.fc3Desc;
+      document.getElementById('fc4-title').textContent = t.fc4Title;
+      document.getElementById('fc4-desc').textContent = t.fc4Desc;
 
       document.getElementById('loc-title').textContent = t.locTitle;
       document.getElementById('loc-address').textContent = t.locAddress;
