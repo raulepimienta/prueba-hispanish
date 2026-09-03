@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HiSpanish! | Aprende Español en Buenos Aires</title>
+  <title>HiSpanish! | Learn Spanish in Buenos Aires</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,7 @@
 
     .links {
       display: flex;
-      gap: 28px;
+      gap: 24px;
       align-items: center;
       font-weight: 700;
       font-size: 15px;
@@ -107,7 +107,7 @@
     .cta-nav {
       background: var(--teal);
       color: var(--white) !important;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 30px;
       font-weight: 800;
       box-shadow: 0 4px 14px rgba(35, 155, 143, 0.3);
@@ -116,6 +116,37 @@
     .cta-nav:hover {
       background: var(--teal-dark);
       transform: translateY(-2px);
+    }
+
+    /* Language Switcher Button */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      border: 2px solid #d9e3e0;
+      border-radius: 30px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .lang-btn.active {
+      background: var(--teal);
+      color: var(--white);
     }
 
     /* Global Buttons & Badges */
@@ -428,10 +459,16 @@
           <img src="logo.png" alt="HiSpanish! Logo">
         </a>
         <div class="links">
-          <a href="#about">Por qué elegirnos</a>
-          <a href="#courses">Cursos</a>
-          <a href="#location">Ubicación</a>
-          <a href="#contact" class="cta-nav">Contacto</a>
+          <a href="#about" id="nav-about">Por qué elegirnos</a>
+          <a href="#courses" id="nav-courses">Cursos</a>
+          <a href="#location" id="nav-location">Ubicación</a>
+          <a href="#contact" class="cta-nav" id="nav-contact">Contacto</a>
+          
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="btn-es" onclick="switchLanguage('es')">🇪🇸 ES</button>
+            <button class="lang-btn" id="btn-en" onclick="switchLanguage('en')">🇬🇧 EN</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -442,20 +479,20 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="tag">Español en Buenos Aires</span>
-          <h1>Aprende español viviendo <span>Palermo</span>.</h1>
-          <p class="lead">Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.</p>
+          <span class="tag" id="hero-tag">Español en Buenos Aires</span>
+          <h1 id="hero-title">Aprende español viviendo <span>Palermo</span>.</h1>
+          <p class="lead" id="hero-lead">Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.</p>
           <div class="hero-buttons">
-            <a class="btn btn-primary" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Empezar por WhatsApp</a>
-            <a class="btn btn-secondary" href="#courses">Ver Cursos</a>
+            <a class="btn btn-primary" id="hero-cta-wa" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Empezar por WhatsApp</a>
+            <a class="btn btn-secondary" id="hero-cta-courses" href="#courses">Ver Cursos</a>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-card">
             <div class="hero-card-inner">
               <img src="logo.png" alt="HiSpanish! Logo" class="hero-logo-display">
-              <h3 style="font-size: 24px; margin-bottom: 8px;">¡Hola! 👋</h3>
-              <p style="color: var(--muted); font-size: 14px;">Descubrí expresiones locales, el lunfardo y la vida en Buenos Aires mientras aprendés.</p>
+              <h3 style="font-size: 24px; margin-bottom: 8px;" id="card-greeting">¡Hola! 👋</h3>
+              <p style="color: var(--muted); font-size: 14px;" id="card-desc">Descubrí expresiones locales, el lunfardo y la vida en Buenos Aires mientras aprendés.</p>
             </div>
           </div>
         </div>
@@ -467,26 +504,26 @@
   <section id="about">
     <div class="wrap">
       <div class="section-title">
-        <span class="tag">La Experiencia</span>
-        <h2>¿Por qué aprender con HiSpanish?</h2>
-        <p style="color: var(--muted);">Diseñamos cada lección para que te comuniques con confianza en situaciones reales.</p>
+        <span class="tag" id="about-tag">La Experiencia</span>
+        <h2 id="about-title">¿Por qué aprender con HiSpanish?</h2>
+        <p style="color: var(--muted);" id="about-sub">Diseñamos cada lección para que te comuniques con confianza en situaciones reales.</p>
       </div>
 
       <div class="features-grid">
         <div class="feature-card">
           <div class="icon-box">🗣️</div>
-          <h3>Enfoque Comunicativo</h3>
-          <p style="color: var(--muted); margin-top: 10px;">Priorizamos la conversación real sobre la memorización pasiva. Hablá español desde la primera clase.</p>
+          <h3 id="feat1-title">Enfoque Comunicativo</h3>
+          <p style="color: var(--muted); margin-top: 10px;" id="feat1-desc">Priorizamos la conversación real sobre la memorización pasiva. Hablá español desde la primera clase.</p>
         </div>
         <div class="feature-card">
           <div class="icon-box">📍</div>
-          <h3>Inmersión en Palermo</h3>
-          <p style="color: var(--muted); margin-top: 10px;">Ubicados en el corazón gastronómico y cultural de Palermo Soho, rodeados de cafés y vida urbana.</p>
+          <h3 id="feat2-title">Inmersión en Palermo</h3>
+          <p style="color: var(--muted); margin-top: 10px;" id="feat2-desc">Ubicados en el corazón gastronómico y cultural de Palermo Soho, rodeados de cafés y vida urbana.</p>
         </div>
         <div class="feature-card">
           <div class="icon-box">⭐</div>
-          <h3>Grupos Reducidos</h3>
-          <p style="color: var(--muted); margin-top: 10px;">Atención personalizada y ritmo adaptado a tus necesidades académicas o de viaje.</p>
+          <h3 id="feat3-title">Grupos Reducidos</h3>
+          <p style="color: var(--muted); margin-top: 10px;" id="feat3-desc">Atención personalizada y ritmo adaptado a tus necesidades académicas o de viaje.</p>
         </div>
       </div>
     </div>
@@ -496,32 +533,32 @@
   <section class="courses-bg" id="courses">
     <div class="wrap">
       <div class="section-title">
-        <span class="tag">Programas</span>
-        <h2>Nuestros Cursos</h2>
-        <p style="color: var(--muted);">Elegí el programa que mejor se adapte a tu estadía y objetivos.</p>
+        <span class="tag" id="courses-tag">Programas</span>
+        <h2 id="courses-title">Nuestros Cursos</h2>
+        <p style="color: var(--muted);" id="courses-sub">Elegí el programa que mejor se adapte a tu estadía y objetivos.</p>
       </div>
 
       <div class="course-grid">
         <div class="course-card">
           <div>
             <div class="course-header">
-              <h3>Curso Intensivo</h3>
-              <span class="badge">Más Popular</span>
+              <h3 id="c1-title">Curso Intensivo</h3>
+              <span class="badge" id="c1-badge">Más Popular</span>
             </div>
-            <p style="color: var(--muted); margin-top: 12px;">Para quienes buscan progresar rápidamente. Clases diarias enfocadas en fluidez y gramática práctica.</p>
+            <p style="color: var(--muted); margin-top: 12px;" id="c1-desc">Para quienes buscan progresar rápidamente. Clases diarias enfocadas en fluidez y gramática práctica.</p>
           </div>
-          <a class="btn btn-secondary" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20el%20Curso%20Intensivo">Consultar Horarios</a>
+          <a class="btn btn-secondary" id="c1-cta" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20el%20Curso%20Intensivo">Consultar Horarios</a>
         </div>
 
         <div class="course-card">
           <div>
             <div class="course-header">
-              <h3>Clases Particulares</h3>
-              <span class="badge">Flexibilidad 100%</span>
+              <h3 id="c2-title">Clases Particulares</h3>
+              <span class="badge" id="c2-badge">Flexibilidad 100%</span>
             </div>
-            <p style="color: var(--muted); margin-top: 12px;">Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.</p>
+            <p style="color: var(--muted); margin-top: 12px;" id="c2-desc">Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.</p>
           </div>
-          <a class="btn btn-secondary" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20Clases%20Particulares">Agendar Clase</a>
+          <a class="btn btn-secondary" id="c2-cta" target="_blank" href="https://wa.me/5491124587215?text=Quiero%20información%20sobre%20Clases%20Particulares">Agendar Clase</a>
         </div>
       </div>
     </div>
@@ -532,10 +569,10 @@
     <div class="wrap">
       <div class="location-card">
         <div>
-          <h2>Vení a estudiar a Palermo Soho</h2>
-          <p>📍 Gurruchaga 1851, C1414DIK Cdad. Autónoma de Buenos Aires</p>
+          <h2 id="loc-title">Vení a estudiar a Palermo Soho</h2>
+          <p id="loc-address">📍 Gurruchaga 1851, C1414DIK Cdad. Autónoma de Buenos Aires</p>
         </div>
-        <a class="btn btn-yellow" target="_blank" href="https://maps.google.com/?q=Gurruchaga+1851,+Cdad.+Autónoma+de+Buenos+Aires">📍 Ver en Google Maps</a>
+        <a class="btn btn-yellow" id="loc-cta" target="_blank" href="https://maps.google.com/?q=Gurruchaga+1851,+Cdad.+Autónoma+de+Buenos+Aires">📍 Ver en Google Maps</a>
       </div>
     </div>
   </section>
@@ -545,14 +582,14 @@
     <div class="wrap">
       <div class="contact-grid">
         <div class="contact-card">
-          <h2 style="margin-bottom: 10px;">¿Listo para decir “¡Hola!”?</h2>
-          <p style="color: var(--muted); margin-bottom: 24px;">Contanos tu nivel de español y qué te gustaría aprender.</p>
-          <a class="btn btn-primary" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Hablar por WhatsApp</a>
+          <h2 style="margin-bottom: 10px;" id="contact-title">¿Listo para decir “¡Hola!”?</h2>
+          <p style="color: var(--muted); margin-bottom: 24px;" id="contact-desc">Contanos tu nivel de español y qué te gustaría aprender.</p>
+          <a class="btn btn-primary" id="contact-cta" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more.">💬 Hablar por WhatsApp</a>
         </div>
 
         <div class="contact-card">
           <h2 style="margin-bottom: 10px;">HiSpanish!</h2>
-          <p style="color: var(--muted); margin-bottom: 12px;">Escuela de español para extranjeros.</p>
+          <p style="color: var(--muted); margin-bottom: 12px;" id="contact-info-subtitle">Escuela de español para extranjeros.</p>
           <p style="color: var(--muted); margin-bottom: 12px;">📍 Gurruchaga 1851, Palermo, CABA</p>
           <p style="font-weight: 700;">📞 +54 9 11 2458-7215</p>
         </div>
@@ -563,7 +600,7 @@
   <!-- Footer -->
   <footer>
     <div class="wrap">
-      <p>&copy; 2026 HiSpanish! · Palermo, Buenos Aires, Argentina. Todos los derechos reservados.</p>
+      <p id="footer-text">&copy; 2026 HiSpanish! · Palermo, Buenos Aires, Argentina. Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -571,6 +608,151 @@
   <a class="wa-float" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27m%20interested%20in%20Spanish%20classes." aria-label="WhatsApp">
     💬
   </a>
+
+  <!-- Translation Script -->
+  <script>
+    const translations = {
+      es: {
+        navAbout: "Por qué elegirnos",
+        navCourses: "Cursos",
+        navLocation: "Ubicación",
+        navContact: "Contacto",
+        heroTag: "Español en Buenos Aires",
+        heroTitle: "Aprende español viviendo <span>Palermo</span>.",
+        heroLead: "Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.",
+        heroCtaWa: "💬 Empezar por WhatsApp",
+        heroCtaCourses: "Ver Cursos",
+        cardGreeting: "¡Hola! 👋",
+        cardDesc: "Descubrí expresiones locales, el lunfardo y la vida en Buenos Aires mientras aprendés.",
+        aboutTag: "La Experiencia",
+        aboutTitle: "¿Por qué aprender con HiSpanish?",
+        aboutSub: "Diseñamos cada lección para que te comuniques con confianza en situaciones reales.",
+        feat1Title: "Enfoque Comunicativo",
+        feat1Desc: "Priorizamos la conversación real sobre la memorización pasiva. Hablá español desde la primera clase.",
+        feat2Title: "Inmersión en Palermo",
+        feat2Desc: "Ubicados en el corazón gastronómico y cultural de Palermo Soho, rodeados de cafés y vida urbana.",
+        feat3Title: "Grupos Reducidos",
+        feat3Desc: "Atención personalizada y ritmo adaptado a tus necesidades académicas o de viaje.",
+        coursesTag: "Programas",
+        coursesTitle: "Nuestros Cursos",
+        coursesSub: "Elegí el programa que mejor se adapte a tu estadía y objetivos.",
+        c1Title: "Curso Intensivo",
+        c1Badge: "Más Popular",
+        c1Desc: "Para quienes buscan progresar rápidamente. Clases diarias enfocadas en fluidez y gramática práctica.",
+        c1Cta: "Consultar Horarios",
+        c2Title: "Clases Particulares",
+        c2Badge: "Flexibilidad 100%",
+        c2Desc: "Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.",
+        c2Cta: "Agendar Clase",
+        locTitle: "Vení a estudiar a Palermo Soho",
+        locAddress: "📍 Gurruchaga 1851, C1414DIK Cdad. Autónoma de Buenos Aires",
+        locCta: "📍 Ver en Google Maps",
+        contactTitle: "¿Listo para decir “¡Hola!”?",
+        contactDesc: "Contanos tu nivel de español y qué te gustaría aprender.",
+        contactCta: "💬 Hablar por WhatsApp",
+        contactInfoSubtitle: "Escuela de español para extranjeros.",
+        footerText: "&copy; 2026 HiSpanish! · Palermo, Buenos Aires, Argentina. Todos los derechos reservados."
+      },
+      en: {
+        navAbout: "Why Choose Us",
+        navCourses: "Courses",
+        navLocation: "Location",
+        navContact: "Contact Us",
+        heroTag: "Spanish in Buenos Aires",
+        heroTitle: "Learn Spanish while living <span>Palermo</span>.",
+        heroLead: "Tailored Spanish classes for expats and travelers in the heart of Buenos Aires. Speak from day one and dive into the local culture.",
+        heroCtaWa: "💬 Start via WhatsApp",
+        heroCtaCourses: "Explore Courses",
+        cardGreeting: "Hi there! 👋",
+        cardDesc: "Discover local slang, everyday expressions, and life in Buenos Aires as you learn.",
+        aboutTag: "The Experience",
+        aboutTitle: "Why Learn with HiSpanish?",
+        aboutSub: "We design every lesson so you can speak with confidence in real-life situations.",
+        feat1Title: "Communicative Approach",
+        feat1Desc: "We focus on real conversation over passive memorization. Speak Spanish starting from class one.",
+        feat2Title: "Palermo Immersion",
+        feat2Desc: "Located in the foodie and cultural heart of Palermo Soho, surrounded by cafes and vibrant city life.",
+        feat3Title: "Small Groups",
+        feat3Desc: "Personalized attention and a learning pace adapted to your travel or academic goals.",
+        coursesTag: "Programs",
+        coursesTitle: "Our Courses",
+        coursesSub: "Choose the program that best fits your stay and language goals.",
+        c1Title: "Intensive Course",
+        c1Badge: "Most Popular",
+        c1Desc: "For those who want to make quick progress. Daily classes focusing on fluency and practical grammar.",
+        c1Cta: "Check Schedule",
+        c2Title: "Private Lessons",
+        c2Badge: "100% Flexible",
+        c2Desc: "Customized study plan tailored to you. Ideal for professionals, exam prep, or specific goals.",
+        c2Cta: "Book a Lesson",
+        locTitle: "Come Study in Palermo Soho",
+        locAddress: "📍 Gurruchaga 1851, C1414DIK Autonomous City of Buenos Aires",
+        locCta: "📍 View on Google Maps",
+        contactTitle: "Ready to say “¡Hola!”?",
+        contactDesc: "Tell us your current level and what you'd love to learn.",
+        contactCta: "💬 Chat on WhatsApp",
+        contactInfoSubtitle: "Spanish language school for international students.",
+        footerText: "&copy; 2026 HiSpanish! · Palermo, Buenos Aires, Argentina. All rights reserved."
+      }
+    };
+
+    function switchLanguage(lang) {
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      const t = translations[lang];
+
+      document.getElementById('nav-about').textContent = t.navAbout;
+      document.getElementById('nav-courses').textContent = t.navCourses;
+      document.getElementById('nav-location').textContent = t.navLocation;
+      document.getElementById('nav-contact').textContent = t.navContact;
+
+      document.getElementById('hero-tag').textContent = t.heroTag;
+      document.getElementById('hero-title').innerHTML = t.heroTitle;
+      document.getElementById('hero-lead').textContent = t.heroLead;
+      document.getElementById('hero-cta-wa').textContent = t.heroCtaWa;
+      document.getElementById('hero-cta-courses').textContent = t.heroCtaCourses;
+
+      document.getElementById('card-greeting').textContent = t.cardGreeting;
+      document.getElementById('card-desc').textContent = t.cardDesc;
+
+      document.getElementById('about-tag').textContent = t.aboutTag;
+      document.getElementById('about-title').textContent = t.aboutTitle;
+      document.getElementById('about-sub').textContent = t.aboutSub;
+
+      document.getElementById('feat1-title').textContent = t.feat1Title;
+      document.getElementById('feat1-desc').textContent = t.feat1Desc;
+      document.getElementById('feat2-title').textContent = t.feat2Title;
+      document.getElementById('feat2-desc').textContent = t.feat2Desc;
+      document.getElementById('feat3-title').textContent = t.feat3Title;
+      document.getElementById('feat3-desc').textContent = t.feat3Desc;
+
+      document.getElementById('courses-tag').textContent = t.coursesTag;
+      document.getElementById('courses-title').textContent = t.coursesTitle;
+      document.getElementById('courses-sub').textContent = t.coursesSub;
+
+      document.getElementById('c1-title').textContent = t.c1Title;
+      document.getElementById('c1-badge').textContent = t.c1Badge;
+      document.getElementById('c1-desc').textContent = t.c1Desc;
+      document.getElementById('c1-cta').textContent = t.c1Cta;
+
+      document.getElementById('c2-title').textContent = t.c2Title;
+      document.getElementById('c2-badge').textContent = t.c2Badge;
+      document.getElementById('c2-desc').textContent = t.c2Desc;
+      document.getElementById('c2-cta').textContent = t.c2Cta;
+
+      document.getElementById('loc-title').textContent = t.locTitle;
+      document.getElementById('loc-address').textContent = t.locAddress;
+      document.getElementById('loc-cta').textContent = t.locCta;
+
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('contact-desc').textContent = t.contactDesc;
+      document.getElementById('contact-cta').textContent = t.contactCta;
+      document.getElementById('contact-info-subtitle').textContent = t.contactInfoSubtitle;
+
+      document.getElementById('footer-text').innerHTML = t.footerText;
+    }
+  </script>
 
 </body>
 </html>
