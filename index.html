@@ -88,6 +88,12 @@
       color: var(--ink);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .links {
       display: flex;
       gap: 28px;
@@ -433,6 +439,11 @@
         text-align: center;
         padding: 35px;
       }
+      /* Selector accesible en móviles */
+      .lang-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -444,11 +455,14 @@
         <a class="brand" href="#top">
           HiSpanish!
         </a>
-        <div class="links">
-          <a href="#about" data-i18n="nav_about">Por qué elegirnos</a>
-          <a href="#courses" data-i18n="nav_courses">Cursos</a>
-          <a href="#location" data-i18n="nav_location">Ubicación</a>
-          <a href="#contact" class="cta-nav" data-i18n="nav_contact">Contacto</a>
+        <div class="nav-actions">
+          <div class="links">
+            <a href="#about" data-i18n="nav_about">Por qué elegirnos</a>
+            <a href="#courses" data-i18n="nav_courses">Cursos</a>
+            <a href="#location" data-i18n="nav_location">Ubicación</a>
+            <a href="#contact" class="cta-nav" data-i18n="nav_contact">Contacto</a>
+          </div>
+          <!-- Visible tanto en escritorio como en celulares -->
           <button class="lang-btn" id="langToggle">
             <span>🇺🇸</span> <span>English</span>
           </button>
@@ -461,9 +475,9 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="tag" data-i18n="hero_tag">Español en Buenos Aires</span>
-          <h1 data-i18n="hero_title">Aprende español viviendo <span>Palermo</span>.</h1>
-          <p class="lead" data-i18n="hero_lead">Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.</p>
+          <span class="tag" data-i18n="hero_tag">Español en Argentina</span>
+          <h1 data-i18n="hero_title">Aprende español en <span>Buenos Aires</span>.</h1>
+          <p class="lead" data-i18n="hero_lead">Clases personalizadas para extranjeros. Hablá desde el primer día y sumergite en la cultura local.</p>
           <div class="hero-buttons">
             <a class="btn btn-primary" target="_blank" href="https://wa.me/5491124587215?text=Hi%20HiSpanish!%20I%27d%20like%20to%20learn%20more." data-i18n="hero_btn_wa">💬 Empezar por WhatsApp</a>
             <a class="btn btn-secondary" href="#courses" data-i18n="hero_btn_courses">Ver Cursos</a>
@@ -498,8 +512,8 @@
         </div>
         <div class="feature-card">
           <div class="icon-box">📍</div>
-          <h3 data-i18n="feat2_title">Inmersión en Palermo</h3>
-          <p style="color: var(--muted); margin-top: 10px;" data-i18n="feat2_desc">Ubicados en uno de los barrios más dinámicos, rodeados de cafés, parques y vida cultural.</p>
+          <h3 data-i18n="feat2_title">Inmersión en Buenos Aires</h3>
+          <p style="color: var(--muted); margin-top: 10px;" data-i18n="feat2_desc">Ubicados en una de las ciudades más dinámicas del mundo, repleta de opciones artísticas, deportivas, rodeados de cafés, parques y vida cultural.</p>
         </div>
       </div>
     </div>
@@ -543,10 +557,10 @@
     <div class="wrap">
       <div class="location-card">
         <div>
-          <h2 data-i18n="loc_title">Vení a estudiar a Palermo</h2>
-          <p data-i18n="loc_subtitle">Buenos Aires, Argentina · Cafés, parques, restaurantes y vida local.</p>
+          <h2 data-i18n="loc_title">Vení a estudiar a Buenos Aires</h2>
+          <p data-i18n="loc_subtitle">Cultura, cafés, gastronomía, tango y una vida local intensa y variada</p>
         </div>
-        <a class="btn btn-yellow" target="_blank" href="https://maps.google.com/?q=Palermo+Soho,+Buenos+Aires,+Argentina" data-i18n="loc_btn">📍 Ver en Google Maps</a>
+        <a class="btn btn-yellow" target="_blank" href="https://maps.google.com/?q=Obelisco,+Buenos+Aires,+Argentina" data-i18n="loc_btn">📍 Ver en Google Maps</a>
       </div>
     </div>
   </section>
@@ -562,7 +576,7 @@
 
         <div class="contact-card">
           <h2 style="margin-bottom: 10px;">HiSpanish!</h2>
-          <p style="color: var(--muted); margin-bottom: 16px;" data-i18n="cnt_address">Palermo, Ciudad de Buenos Aires - Argentina</p>
+          <p style="color: var(--muted); margin-bottom: 16px;" data-i18n="cnt_address">Buenos Aires, Argentina</p>
           <p style="font-weight: 700;">📞 +54 9 11 2458-7215</p>
         </div>
       </div>
@@ -586,9 +600,9 @@
         nav_courses: "Cursos",
         nav_location: "Ubicación",
         nav_contact: "Contacto",
-        hero_tag: "Español en Buenos Aires",
-        hero_title: "Aprende español viviendo <span>Palermo</span>.",
-        hero_lead: "Clases personalizadas para extranjeros en el corazón de Buenos Aires. Hablá desde el primer día y sumergite en la cultura local.",
+        hero_tag: "Español en Argentina",
+        hero_title: "Aprende español en <span>Buenos Aires</span>.",
+        hero_lead: "Clases personalizadas para extranjeros. Hablá desde el primer día y sumergite en la cultura local.",
         hero_btn_wa: "💬 Empezar por WhatsApp",
         hero_btn_courses: "Ver Cursos",
         card_hello: "¡Hola! 👋",
@@ -598,8 +612,8 @@
         about_subtitle: "Diseñamos cada lección para que te comuniques con confianza en situaciones reales.",
         feat1_title: "Enfoque Comunicativo",
         feat1_desc: "Priorizamos la conversación real sobre la memorización pasiva. Hablá español desde la primera clase.",
-        feat2_title: "Inmersión en Palermo",
-        feat2_desc: "Ubicados en uno de los barrios más dinámicos, rodeados de cafés, parques y vida cultural.",
+        feat2_title: "Inmersión en Buenos Aires",
+        feat2_desc: "Ubicados en una de las ciudades más dinámicas del mundo, repleta de opciones artísticas, deportivas, rodeados de cafés, parques y vida cultural.",
         courses_tag: "Programas",
         courses_title: "Nuestros Cursos",
         courses_subtitle: "Elegí el programa que mejor se adapte a tu estadía y objetivos.",
@@ -611,13 +625,13 @@
         c2_badge: "Flexibilidad 100%",
         c2_desc: "Plan de estudio hecho a tu medida. Ideal para profesionales, preparación de exámenes o necesidades específicas.",
         c2_btn: "Agendar Clase",
-        loc_title: "Vení a estudiar a Palermo",
-        loc_subtitle: "Buenos Aires, Argentina · Cafés, parques, restaurantes y vida local.",
+        loc_title: "Vení a estudiar a Buenos Aires",
+        loc_subtitle: "Cultura, cafés, gastronomía, tango y una vida local intensa y variada",
         loc_btn: "📍 Ver en Google Maps",
         cnt_title: "¿Listo para decir “¡Hola!”?",
         cnt_subtitle: "Contanos tu nivel de español y qué te gustaría aprender.",
         cnt_btn: "💬 Hablar por WhatsApp",
-        cnt_address: "Palermo, Ciudad de Buenos Aires - Argentina",
+        cnt_address: "Buenos Aires, Argentina",
         footer: "&copy; 2026 HiSpanish! · Todos los derechos reservados."
       },
       en: {
@@ -625,9 +639,9 @@
         nav_courses: "Courses",
         nav_location: "Location",
         nav_contact: "Contact",
-        hero_tag: "Spanish in Buenos Aires",
-        hero_title: "Learn Spanish while living <span>Palermo</span>.",
-        hero_lead: "Personalized classes for foreigners in the heart of Buenos Aires. Speak from day one and immerse yourself in local culture.",
+        hero_tag: "Spanish in Argentina",
+        hero_title: "Learn Spanish in <span>Buenos Aires</span>.",
+        hero_lead: "Personalized classes for foreigners. Speak from day one and immerse yourself in local culture.",
         hero_btn_wa: "💬 Start via WhatsApp",
         hero_btn_courses: "View Courses",
         card_hello: "Hola! 👋",
@@ -637,8 +651,8 @@
         about_subtitle: "We design every lesson so you can communicate confidently in real situations.",
         feat1_title: "Communicative Approach",
         feat1_desc: "We prioritize real conversation over passive memorization. Speak Spanish from the very first class.",
-        feat2_title: "Immersion in Palermo",
-        feat2_desc: "Located in one of the most vibrant neighborhoods, surrounded by cafes, parks, and culture.",
+        feat2_title: "Immersion in Buenos Aires",
+        feat2_desc: "Located in one of the most vibrant cities in the world, full of artistic and sports options, surrounded by cafes, parks, and cultural life.",
         courses_tag: "Programs",
         courses_title: "Our Courses",
         courses_subtitle: "Choose the program that best fits your stay and personal goals.",
@@ -650,13 +664,13 @@
         c2_badge: "100% Flexible",
         c2_desc: "A tailored study plan designed just for you. Ideal for professionals or specific goals.",
         c2_btn: "Book a Class",
-        loc_title: "Come study in Palermo",
-        loc_subtitle: "Buenos Aires, Argentina · Cafes, parks, restaurants, and local life.",
+        loc_title: "Come study in Buenos Aires",
+        loc_subtitle: "Culture, cafes, gastronomy, tango, and a vibrant local scene",
         loc_btn: "📍 View on Google Maps",
         cnt_title: "Ready to say “¡Hola!”?",
         cnt_subtitle: "Tell us your Spanish level and what you'd like to achieve.",
         cnt_btn: "💬 Chat on WhatsApp",
-        cnt_address: "Palermo, Buenos Aires - Argentina",
+        cnt_address: "Buenos Aires, Argentina",
         footer: "&copy; 2026 HiSpanish! · All rights reserved."
       }
     };
